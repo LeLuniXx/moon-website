@@ -1,0 +1,70 @@
+ 
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <title>Kuylo Studios v2</title>
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+    <!--//Style-CSS -->
+</head>
+
+<body>
+    <div class="Coming-block">
+
+      <div class="page">
+
+        </div>
+        <div class="content">
+            <div class="logo">
+                
+                <a class="brand-logo" href="#index.html">
+                </a> 
+            </div>
+            <div class="w3l-coming-soon-page">
+              <div class="coming-block">
+                    <h1>Kuylo Studios</h1>
+                <p>improve the adventure!</p>
+<a href="https://discord.gg/cDCcphbX98" class="home">Discord</a>
+                  <a href="https://www.pinterest.de/" class="home">Git-Hub</a>
+                </div>
+            </div>
+        </div>
+		
+      <script src="js/jquery-3.3.1.min.js"></script>
+        
+        <script>
+            var lFollowX = 0,
+                lFollowY = 0,
+                x = 0,
+                y = 0,
+                friction = 1 / 30;
+
+            function animate() {
+                x += (lFollowX - x) * friction;
+                y += (lFollowY - y) * friction;
+
+                translate = 'translate(' + x + 'px, ' + y + 'px) scale(1.1)';
+
+                $('.page').css({
+                    '-webit-transform': translate,
+                    '-moz-transform': translate,
+                    'transform': translate
+                });
+
+                window.requestAnimationFrame(animate);
+            }
+
+            $(window).on('mousemove click', function (e) {
+
+                var lMouseX = Math.max(-100, Math.min(100, $(window).width() / 2 - e.clientX));
+                var lMouseY = Math.max(-100, Math.min(100, $(window).height() / 2 - e.clientY));
+                lFollowX = (20 * lMouseX) / 100; // 100 : 12 = lMouxeX : lFollow
+                lFollowY = (10 * lMouseY) / 100;
+
+            });
+
+            animate();
+		</script>
+</html>
